@@ -1,0 +1,23 @@
+создаем модель категории
+makemigrations
+для упрвления создания категорий создаем суперпользователя
+python manage.py createsuperuser
+чтобы отобразить категории в /admin
+admin.py
+Создаем модель Product
+и регистрируем ее в product/admin.py
+
+index.html
+
+{{category.products.count}}
+related_name='products' в определении ForeignKey в модели Product
+указывает Django, как обращаться к связанным объектам Product из
+объекта Category. Это то, что позволяет вам использовать category.products.count для
+получения количества элементов в категории.
+
+Добавляем view -detail в product app
+Создаем свой urls.py
+регистрируем в urls в marketplace.urls
+
+Регистрация пользователя
+создаем  файл forms.py

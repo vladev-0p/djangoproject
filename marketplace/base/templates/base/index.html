@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% block body %}
+
+
+    <h1>The Front page</h1>
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center ">Newest Items</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for product in products %}
+            <div>
+                <a href="{% url 'product:detail'  product.id %}">
+                <div>
+               <img src="{{ product.image.url }}" class="rounded-t-xl" style="width: 400px;  height:600px;" >
+                </div>
+                <div class="p-6 bg-white rounded-b-xl text-2xl">
+                 {{product.name}}
+                    </div>
+                    <p class="text-gray-500">Price {{product.price}}</p>
+                    </a>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+        <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center ">Categories</h2>
+
+        <div class="grid grid-cols-3 gap-3 flex">
+            {% for  category in categories %}
+            <div>
+                <a href="#">
+                <div class="p-6 bg-red rounded-b-xl">
+                 <h2 class="text-2xl">{{ category.name }}</h2>
+                <p class="text-gray-500"> {{ category.products.count }} items</p>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+{% endblock %}
